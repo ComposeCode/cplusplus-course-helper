@@ -22,6 +22,58 @@ C++ has been used for all kinds of different software, from video-games such as 
 
 ## Programming a C++ Application
 
-C++ applications can be written using simple text-editors or complex IDE environments (such as Microsoft Visual Studio). When the code is written, it must be compiled using a compiler, which converts the source-code into machine-language, contained in object files. Finally, the object files are linked using a linker to get an executable (.exe on Windows).
+C++ applications can be written using simple text-editors or complex IDE environments (such as Microsoft Visual Studio). When the code is written, it must be compiled using a compiler, which converts the source-code into machine-language contained in object files. Finally, the object files are linked using a linker to get an executable (.exe on Windows).
 
-The compilation process 
+The compilation process takes code written in C++, contained in text files with the .cpp extension and converts them into byte code that the processor can execute. The processor (CPU) in your computer has something called an instruction set, which is a list of possible operations it can perform (such as adding two numbers). Each instruct is typically represented with a byte-code, known as an (opcode)[https://en.wikipedia.org/wiki/Opcode].  
+
+The compiler converts one code file at a time, generating an object file with the extension of .o or .obj, ignoring dependencies that the source code may have on another file. The link then 'joins the dots' and resolves any missing dependencies. If the linking operation is successful, it creates an executable for the programmer to execute and distribute. This entire process is sometimes called 'building', which will usually output an executable binary (.exe on windows) or shared library (DLL on Windows).
+
+## Debugging and Understanding Errors
+
+Almost no applications run successfully when they are first written. Any application, including those written in C++, need to be executed many times as part of a testing effort, to remove errors and bugs. After bugs are fixed, the application is rebuilt and the testing process continues. The iterative bug finding and fixing process is known as debugging. A good development environment includes tools which aid programmers in the process of debugging. Most IDE (Integrated development environment, such as Visual Studio), include these tools.
+
+## Integrated Development Environments
+
+An IDE or Integrated Development Environment is typically a piece of software which provides the programmer to write code, compile, link and debug code within a simplified interface. You don't need to use an IDE to write C++. You can use a simple text editor, such as gedit, vi, emacs, or atom and perform the build process manually by invoking compilation and linking using a compiler/linker.
+
+```
+  Need steps for installing Visual Studio express.
+```
+
+## Writing your first C++ Application
+
+If you're on Windows and are running Visual Studio, first create a new solution and project:
+
+```
+  - Need steps for Visual Studio, creating a new solution and project.
+```
+
+If you're using a Linux machine or if you're on OSX, create the file main.cpp in a text editor. Add the following code to the file:
+
+```
+  #include <iostream>
+
+  int main()
+  {
+     std::cout << "Hello World!" << std::endl;
+     return 0;
+  }
+```
+
+This application will output the text "Hello World" on the display when executed. The value 0 is returned to the operating system when it is executed.
+
+## Building this Application
+
+If you're on Windows within Visual Studio, you can
+
+```
+  need building steps for Visual Studio and Unix
+```
+
+## Understanding Compile Errors
+
+- Need some content around errors, purposefully putting in an error to see it during build process.
+
+## Summary
+
+This chapter provided a brief introduction to C++ and we have compiled our first application. We have installed and configured our IDE ready for the rest of the course. 
