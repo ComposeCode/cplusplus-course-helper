@@ -28,9 +28,14 @@ The compilation process takes code written in C++, contained in text files with 
 
 The compiler converts one code file at a time, generating an object file with the extension of .o or .obj, ignoring dependencies that the source code may have on another file. The link then 'joins the dots' and resolves any missing dependencies. If the linking operation is successful, it creates an executable for the programmer to execute and distribute. This entire process is sometimes called 'building', which will usually output an executable binary (.exe on windows) or shared library (DLL on Windows).
 
+This process is different to interpreted programs/languages. For example, scripts written in PHP, Python or Shell (Windows Powershell or BASH) are interpreted at run time. This means that the application does not go through the same build phase and the application code is analysed and executed when the application is run. In order to execute such programs, the interpreter for the specific language the program is written in must be available on your machine. The process of interpretation also impacts performance as the interpreter must 'translate' code written by the programmer to byte-code at run-time.
+
 ## Debugging and Understanding Errors
 
 Almost no applications run successfully when they are first written. Any application, including those written in C++, need to be executed many times as part of a testing effort, to remove errors and bugs. After bugs are fixed, the application is rebuilt and the testing process continues. The iterative bug finding and fixing process is known as debugging. A good development environment includes tools which aid programmers in the process of debugging. Most IDE (Integrated development environment, such as Visual Studio), include these tools.
+
+- Explain difference between errors and warnings.
+- Explain difference between runtime errors and compile time errors. 
 
 ## Integrated Development Environments
 
@@ -76,4 +81,4 @@ If you're on Windows within Visual Studio, you can
 
 ## Summary
 
-This chapter provided a brief introduction to C++ and we have compiled our first application. We have installed and configured our IDE ready for the rest of the course. 
+This chapter provided a brief introduction to C++ and we have compiled our first application. We have installed and configured our IDE ready for the rest of the course.
