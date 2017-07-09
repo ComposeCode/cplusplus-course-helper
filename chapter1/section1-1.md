@@ -35,25 +35,35 @@ This process is different to interpreted programs/languages. For example, script
 Almost no applications run successfully when they are first written. Any application, including those written in C++, need to be executed many times as part of a testing effort, to remove errors and bugs. After bugs are fixed, the application is rebuilt and the testing process continues. The iterative bug finding and fixing process is known as debugging. A good development environment includes tools which aid programmers in the process of debugging. Most IDE (Integrated development environment, such as Visual Studio), include these tools.
 
 - Explain difference between errors and warnings.
-- Explain difference between runtime errors and compile time errors. 
+- Explain difference between runtime errors and compile time errors.
 
 ## Integrated Development Environments
 
 An IDE or Integrated Development Environment is typically a piece of software which provides the programmer to write code, compile, link and debug code within a simplified interface. You don't need to use an IDE to write C++. You can use a simple text editor, such as gedit, vi, emacs, or atom and perform the build process manually by invoking compilation and linking using a compiler/linker.
 
-```
-  Need steps for installing Visual Studio express.
-```
+This course has been written for Windows, so we will now install Visual Studio. Linux steps will be covered at a later date:
+
+1) First download Visual Studio Community 2017 (previously known as Express edition) from this Link: (https://www.visualstudio.com/downloads/)[https://www.visualstudio.com/downloads/]. You can of course use an older version or an Enterprise or Professional edition of Visual Studio.
+
+2) Open the .exe, when prompted for workload type, Select Universal Windows Platform Development and Desktop Development with C++ and then hit next.
+
+3) Let the application install, eventually you will end up at a screen like this. Note I have both Enterprise and two different versions of the community edition installed.
 
 ## Writing your first C++ Application
 
 If you're on Windows and are running Visual Studio, first create a new solution and project:
 
-```
-  - Need steps for Visual Studio, creating a new solution and project.
-```
+1) First launch Visual Studio from your start menu. You may be prompted to create a Visual Studio Profile, feel free to do so and log in. Eventually you should see a screen like this:
 
-If you're using a Linux machine or if you're on OSX, create the file main.cpp in a text editor. Add the following code to the file:
+2) Next, we go to File at the Top left -> go to New -> then hit Project. We will choose a blank project. In the list of project templates, find Visual C++, then hit Visual C++, in the drop down select General and then hit Empty Project. Give the project a name, I.E HelloWorld and hit OK.
+
+** Note that this list has lots of build in project types, like Windows Forms applications, .NET applications and websites. We will create a basic Windows console application.
+
+3) When the Wizard comes up to build your Win32 Application, just hit the finish button. This will create an empty solution and project for us to work with.
+
+4) Now we will add a new file which will contain our source code. Right click the Source Files folder inside the Solution Explorer, go to Add -> New Item -> Visual C++ (code) -> C++ File (.cpp) -> Call the file Main.cpp and hit add.
+
+5) Once you've added main CPP, add the following code to the file and save it (hit ctrl+s or go to File -> Save)
 
 ```
   #include <iostream>
@@ -65,15 +75,28 @@ If you're using a Linux machine or if you're on OSX, create the file main.cpp in
   }
 ```
 
-This application will output the text "Hello World" on the display when executed. The value 0 is returned to the operating system when it is executed.
+6) Once the file has been saved, it can now be built and run. Go to Build menu at the top menu bar -> Build Solution to compile the development build. We can now run our application.
 
-## Building this Application
+7) To run the application, you can either go directly to the project folder and run the compiled executable (HelloWorld.exe, found in My Documents/Visual Studio 2017/Projects/HelloWorld/Debug/ if using the default path) or you can run the application directly within the IDE. If you press the green triangle icon within the IDE, it will run the program.
 
-If you're on Windows within Visual Studio, you can
+8) You will notice that the program opens and closes very quickly. This is because we have created a console application which runs and does not wait for any input. We can add some more code to keep the application open. Above the return 0; line, add the code getchar(); so you have the following:
 
 ```
-  need building steps for Visual Studio and Unix
+  #include <iostream>
+
+  int main()
+  {
+     std::cout << "Hello World!" << std::endl;
+     getchar();
+     return 0;
+  }
 ```
+
+9) Now rebuild the application again, either by using the menu or by pressing ctrl + shift + b. This will create a new executable.
+
+10) Run the application again, this time the prompt will stay open and display "Hello World!".
+
+This application will output the text "Hello World" on the display when executed. The value 0 is returned to the operating system when it is executed. The extra line we added, getchar(); causes the system to run the getchar() function, which causes the application to get input from the user. This code will be explored in more detail in the section chapter. The import part is already done: we now have a working compiler we can use to build C++ code throughout the rest of the course. 
 
 ## Understanding Compile Errors
 
