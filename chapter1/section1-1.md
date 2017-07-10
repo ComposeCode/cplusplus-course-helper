@@ -96,7 +96,7 @@ If you're on Windows and are running Visual Studio, first create a new solution 
 
 10) Run the application again, this time the prompt will stay open and display "Hello World!".
 
-This application will output the text "Hello World" on the display when executed. The value 0 is returned to the operating system when it is executed. The extra line we added, getchar(); causes the system to run the getchar() function, which causes the application to get input from the user. This code will be explored in more detail in the section chapter. The import part is already done: we now have a working compiler we can use to build C++ code throughout the rest of the course. 
+This application will output the text "Hello World" on the display when executed. The value 0 is returned to the operating system when it is executed. The extra line we added, getchar(); causes the system to run the getchar() function, which causes the application to get input from the user. This code will be explored in more detail in the section chapter. The import part is already done: we now have a working compiler we can use to build C++ code throughout the rest of the course.
 
 ## Understanding Compile Errors
 
