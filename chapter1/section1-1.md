@@ -100,7 +100,11 @@ This application will output the text "Hello World" on the display when executed
 
 ## Understanding Compile Errors
 
-- Need some content around errors, purposefully putting in an error to see it during build process.
+There are two types of errors in programs: run time errors and compile time errors. Run time errors occur when a program is executed. For example, you could be playing a game, which runs fine for several hours but then suddenly crashes. Another common example is the blue screen of death which occurs on Windows Systems, usually from a kernel run-time error.
+
+Compile time errors are picked up by the compiler when compiling the application. The compiler is able to detect syntax errors, such as typos in variable names or invalid syntax which doesn't follow C++ convention. In additional to compile time errors, we also have compile time warnings. Compile time warnings usually indicate the compiler has detected a potential issue with your program, sometimes with a remedy. The main difference between errors and warnings is that warnings can usually be ignored and the application will still execute, but there is no guarantee if it will run correctly with the detected error.
+
+ 
 
 ## Summary
 
