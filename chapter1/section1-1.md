@@ -102,10 +102,18 @@ This application will output the text "Hello World" on the display when executed
 
 There are two types of errors in programs: run time errors and compile time errors. Run time errors occur when a program is executed. For example, you could be playing a game, which runs fine for several hours but then suddenly crashes. Another common example is the blue screen of death which occurs on Windows Systems, usually from a kernel run-time error.
 
-Compile time errors are picked up by the compiler when compiling the application. The compiler is able to detect syntax errors, such as typos in variable names or invalid syntax which doesn't follow C++ convention. In additional to compile time errors, we also have compile time warnings. Compile time warnings usually indicate the compiler has detected a potential issue with your program, sometimes with a remedy. The main difference between errors and warnings is that warnings can usually be ignored and the application will still execute, but there is no guarantee if it will run correctly with the detected error.
+Compile time errors are picked up by the compiler when compiling the application. The compiler is able to detect syntax errors, such as typos in variable names or invalid syntax which doesn't follow C++ convention. For example, try removing a semi colon at the end of the getchar() line in the Hello World application we built previously, and then try rebuilding the application. You should get an error like this:  
 
- 
+```
+Severity	Code	Description	Project	File	Line	Suppression State
+Error	C2143	syntax error: missing ';' before 'return'	HelloWorld	c:\users\conta\onedrive\documents\visual studio 2017\projects\helloworld\helloworld\main.cpp	7
+Error (active)	E0065	expected a ';'	HelloWorld	c:\Users\conta\OneDrive\Documents\Visual Studio 2017\Projects\HelloWorld\HelloWorld\main.cpp	7
+```
+
+This shows that the compiler has picked up the error and realised that we have missed a semicolon out. Put the colon back in and then try removing other pieces of the code and recompiling the code. Doing this can help you get to grips with some common errors.
+
+In additional to compile time errors, we also have compile time warnings. Compile time warnings usually indicate the compiler has detected a potential issue with your program, sometimes with a remedy. The main difference between errors and warnings is that warnings can usually be ignored and the application will still execute, but there is no guarantee if it will run correctly with the detected error.
 
 ## Summary
 
-This chapter provided a brief introduction to C++ and we have compiled our first application. We have installed and configured our IDE ready for the rest of the course.
+This chapter provided a brief introduction to C++ and we have compiled our first application. We have installed and configured our IDE ready for the rest of the course. We have looked at compile time and run time bugs. 
