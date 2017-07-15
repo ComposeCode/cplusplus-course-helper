@@ -30,13 +30,6 @@ The compiler converts one code file at a time, generating an object file with th
 
 This process is different to interpreted programs/languages. For example, scripts written in PHP, Python or Shell (Windows Powershell or BASH) are interpreted at run time. This means that the application does not go through the same build phase and the application code is analysed and executed when the application is run. In order to execute such programs, the interpreter for the specific language the program is written in must be available on your machine. The process of interpretation also impacts performance as the interpreter must 'translate' code written by the programmer to byte-code at run-time.
 
-## Debugging and Understanding Errors
-
-Almost no applications run successfully when they are first written. Any application, including those written in C++, need to be executed many times as part of a testing effort, to remove errors and bugs. After bugs are fixed, the application is rebuilt and the testing process continues. The iterative bug finding and fixing process is known as debugging. A good development environment includes tools which aid programmers in the process of debugging. Most IDE (Integrated development environment, such as Visual Studio), include these tools.
-
-- Explain difference between errors and warnings.
-- Explain difference between runtime errors and compile time errors.
-
 ## Integrated Development Environments
 
 An IDE or Integrated Development Environment is typically a piece of software which provides the programmer to write code, compile, link and debug code within a simplified interface. You don't need to use an IDE to write C++. You can use a simple text editor, such as gedit, vi, emacs, or atom and perform the build process manually by invoking compilation and linking using a compiler/linker.
@@ -45,9 +38,15 @@ This course has been written for Windows, so we will now install Visual Studio. 
 
 1) First download Visual Studio Community 2017 (previously known as Express edition) from this Link: (https://www.visualstudio.com/downloads/)[https://www.visualstudio.com/downloads/]. You can of course use an older version or an Enterprise or Professional edition of Visual Studio.
 
+![Local Image](/images/vs_install_workload_type.PNG)
+
 2) Open the .exe, when prompted for workload type, Select Universal Windows Platform Development and Desktop Development with C++ and then hit next.
 
+![Local Image](/images/vs_install_progress.PNG)
+
 3) Let the application install, eventually you will end up at a screen like this. Note I have both Enterprise and two different versions of the community edition installed.
+
+![Local Image](/images/vs_install_complete.PNG)
 
 ## Writing your first C++ Application
 
@@ -55,13 +54,21 @@ If you're on Windows and are running Visual Studio, first create a new solution 
 
 1) First launch Visual Studio from your start menu. You may be prompted to create a Visual Studio Profile, feel free to do so and log in. Eventually you should see a screen like this:
 
+![Local Image](/images/vs_start.png)
+
 2) Next, we go to File at the Top left -> go to New -> then hit Project. We will choose a blank project. In the list of project templates, find Visual C++, then hit Visual C++, in the drop down select General and then hit Empty Project. Give the project a name, I.E HelloWorld and hit OK.
+
+![Local Image](/images/vs_new_project.PNG)
 
 ** Note that this list has lots of build in project types, like Windows Forms applications, .NET applications and websites. We will create a basic Windows console application.
 
 3) When the Wizard comes up to build your Win32 Application, just hit the finish button. This will create an empty solution and project for us to work with.
 
+![Local Image](/images/vs_win32_project_new.PNG)
+
 4) Now we will add a new file which will contain our source code. Right click the Source Files folder inside the Solution Explorer, go to Add -> New Item -> Visual C++ (code) -> C++ File (.cpp) -> Call the file Main.cpp and hit add.
+
+![Local Image](/images/vs_add_main_cpp.PNG)
 
 5) Once you've added main CPP, add the following code to the file and save it (hit ctrl+s or go to File -> Save)
 
@@ -75,9 +82,15 @@ If you're on Windows and are running Visual Studio, first create a new solution 
   }
 ```
 
+![Local Image](/images/vs_helloworld_main.cpp.PNG)
+
 6) Once the file has been saved, it can now be built and run. Go to Build menu at the top menu bar -> Build Solution to compile the development build. We can now run our application.
 
+![Local Image](/images/vs_helloworld_main.cpp.PNG)
+
 7) To run the application, you can either go directly to the project folder and run the compiled executable (HelloWorld.exe, found in My Documents/Visual Studio 2017/Projects/HelloWorld/Debug/ if using the default path) or you can run the application directly within the IDE. If you press the green triangle icon within the IDE, it will run the program.
+
+![Local Image](/images/vs_compiled_helloworld.PNG)
 
 8) You will notice that the program opens and closes very quickly. This is because we have created a console application which runs and does not wait for any input. We can add some more code to keep the application open. Above the return 0; line, add the code getchar(); so you have the following:
 
@@ -92,13 +105,21 @@ If you're on Windows and are running Visual Studio, first create a new solution 
   }
 ```
 
+![Local Image](/images/vs_debug_helloworld_compiled.PNG)
+
 9) Now rebuild the application again, either by using the menu or by pressing ctrl + shift + b. This will create a new executable.
+
+![Local Image](/images/vs_new_project_execute.PNG)
 
 10) Run the application again, this time the prompt will stay open and display "Hello World!".
 
 This application will output the text "Hello World" on the display when executed. The value 0 is returned to the operating system when it is executed. The extra line we added, getchar(); causes the system to run the getchar() function, which causes the application to get input from the user. This code will be explored in more detail in the section chapter. The import part is already done: we now have a working compiler we can use to build C++ code throughout the rest of the course.
 
+![Local Image](/images/vs_helloworld_console.PNG)
+
 ## Understanding Compile Errors
+
+Almost no applications run successfully when they are first written. Any application, including those written in C++, need to be executed many times as part of a testing effort, to remove errors and bugs. After bugs are fixed, the application is rebuilt and the testing process continues. The iterative bug finding and fixing process is known as debugging. A good development environment includes tools which aid programmers in the process of debugging. Most IDE (Integrated development environment, such as Visual Studio), include these tools.
 
 There are two types of errors in programs: run time errors and compile time errors. Run time errors occur when a program is executed. For example, you could be playing a game, which runs fine for several hours but then suddenly crashes. Another common example is the blue screen of death which occurs on Windows Systems, usually from a kernel run-time error.
 
@@ -116,4 +137,4 @@ In additional to compile time errors, we also have compile time warnings. Compil
 
 ## Summary
 
-This chapter provided a brief introduction to C++ and we have compiled our first application. We have installed and configured our IDE ready for the rest of the course. We have looked at compile time and run time bugs. 
+This chapter provided a brief introduction to C++ and we have compiled our first application. We have installed and configured our IDE ready for the rest of the course. We have looked at compile time and run time bugs.
