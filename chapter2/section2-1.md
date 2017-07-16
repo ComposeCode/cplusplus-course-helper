@@ -25,3 +25,5 @@ Preprocessor directives, such as #define, #include or #idef are used to make pro
 The preprocessor directive we have used in our Hello World application is called #include, which tells the preprocessor to take the contents of the file (iostream, in this case) and include them at the line where the directive is made. iostream is a standard header file that includes functions for input and output streams. This particular header allows us to use the 'std::cout' function to output text.
 
 To summarize, the compiler was able to compile the line of code which uses 'std::cout' because we instructed the preprocessor to include the definition of std::cout.
+
+Note: Complex C++ programs are split into multiple files to make them more readable. Typically this means multiple C++ header files (files that end in h) and multiple C++ code files ending in cpp. If something is defined in HeaderA.h and is referenced in file Code.cpp, the HeaderA.h file should be referenced 
