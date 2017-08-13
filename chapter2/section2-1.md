@@ -26,4 +26,154 @@ The preprocessor directive we have used in our Hello World application is called
 
 To summarize, the compiler was able to compile the line of code which uses 'std::cout' because we instructed the preprocessor to include the definition of std::cout.
 
-Note: Complex C++ programs are split into multiple files to make them more readable. Typically this means multiple C++ header files (files that end in h) and multiple C++ code files ending in cpp. If something is defined in HeaderA.h and is referenced in file Code.cpp, the HeaderA.h file should be referenced 
+Note: Complex C++ programs are split into multiple files to make them more readable. Typically this means multiple C++ header files (files that end in h) and multiple C++ code files ending in cpp. If something is defined in HeaderA.h and is referenced in file Code.cpp, the HeaderA.h file should be referenced within the Code.cpp file using an include directive. The include path should be the relative path from Code.cpp to HeaderA.h. Standard headers are typically included using angled brackets such as <windows.h> or <iostream> where as custom headers are usually included using double quote marks.
+
+## The main function
+
+After the include preprocessor directive we see the declaration of the main function:
+
+```
+  int main()
+```
+
+Functions are basically blocks of code which perform some specific action. These are also sometimes referred to as subroutines or procedures and are similar to functions in mathematics. Quite often a function is written to perform some repeatable task, such as adding two numbers or writing text to files.
+
+The main function is very important in C++ programs and serves a special purpose. This function serves as the entry point for the application, when the program is executed, it is the first part of the program to be run.
+
+Functions can also return values or have values passed into them as part of the action they are designed to perform. For example, lets say we have a function called Addition which adds two numbers, A and B. We could write a function which takes these two values as parameters, and then returns a value which is the sum of A + B. The 'int' part of the main function above indicates that the function returns an integer value (a whole number, which is not a fraction). Most common definitions of the main function return an integer which usually indicates if the program has ran successfully or not.
+
+Another common variant of the main function looks like this:
+
+```
+  int main (int argc, char* argv[])
+```
+
+This variant of the function has two parameters, an integer called argc and an array of character pointers. We will not cover pointers in this chapter, the important point is to understand how parameters to a function are defined, inside the brackets, by mentioning a type and a parameter name. By defining this second parameter for the main function, it allows command like arguments to be passed to the program at run time.
+
+For example, you may have a program which uses an input from the user in its computation. Below is an example of how such a program may function when run:
+
+```
+  hello_world.exe ComposeCode
+  Hello, ComposeCode.
+```
+
+As we can see, the hello_world.exe program takes the value 'ComposeCode' and then combines it with 'Hello, ' before displaying it to the user. C++ programs can use a range of different input sources, from text input from a keyboard to mouse movement, network adapters, joysticks and gamepads. Such programs can also be written to take a range of different command line arguments of varying type and complexity.
+
+Finally, the curly brackets below -
+
+## std::out and std::endl;
+
+Lets analyse the next line of the Hello World program:
+
+```
+  std::cout << "Hello World!" << std::endl;
+```
+
+This line of code is actually responsible for writing text out to the screen. The cout part of this statement is responsible for writing the "Hello World" piece of text to the console. cout is a stream defined in the standard std namespace (which is why std:: is appended). Cout is a type of stream and by using the stream insertion operator denoted by << the text "Hello World!" is written to the screen. The final piece of this statement denoted by std::endl is used to end the text written to the stream and is very similar to a carriage return.
+
+Note: that pieces of text, sometimes called strings, are wrapped in double quotes "". Individual characters are sometimes wrapped with single quotes ''. The stream insertion operator << must be used every time a new entity needs to be inserted into the stream.
+
+We cover streams in more details later on in another chapter. Streams are pretty useful and can be used for more than just writing text to a screen, such as reading/writing files from disk.
+
+## Returning a value
+
+The final line of this function is denoted by this code:
+
+```
+ return 0;
+```
+
+As previously described, functions can return values. This particular statement returns the integer value 0 to the calling program. The convention is to generally return 0 in the event of success or -1 in the event of an error. Typically a parent process executes a child process (such as the Hello World program) and will use the return value to check if it has executed correctly. This is still used a lot on GNU/Linux systems and was very important when operating systems didn't have a graphical interface.
+
+Note: Functions can return other types instead of integer, like arrays, doubles, constants or custom types as we will see later on.
+
+## Namespaces
+
+Namespaces are used to help the compiler understand which piece of code you are referencing. For example, you could have a function called cout defined in two places which the compiler knows about, but by appending the std::, you are telling the compiler specifically to use the cout definition which is part of the standard namespace, thus reducing the chance for a naming conflict.
+
+To make this simpler, it is possible to add the 'using' statement to our original program, to make references to the standard namespace easier:
+
+```
+  #include <iostream>
+  using namespace std;
+
+  int main()
+  {
+     cout << "Hello World!" << endl;
+     return 0;
+  }
+```
+
+It is also possible to put the using statement within the function and to refer directly to something within the namespace, instead of refering to the entire namespace:
+
+```
+  #include <iostream>
+
+  int main()
+  {
+     using std::cout;
+     using std::endl;
+     cout << "Hello World!" << endl;
+     return 0;
+  }
+```
+
+## Using Comments in Code
+
+Code can look like a foreign language if you didn't write it, especially if you have to pickup and improve code which was written by someone else. If not all programming and scripting languages provide the ability to put comments in code. The purpose of comments is to help articulate and explain code in plaintext. If you ever have to revisit some source-code you wrote a long time ago or contribute to an existing project, comments are invaluable. Writing good quality comments comes with time and experience, as you don't want to over-articulate yourself or write comments for self-explaining/simple code.
+
+There are two main ways to write comments in C++, here is the first, used for single line comments:
+
+```
+ // This is a single line comment
+```
+
+Here is the second, used for multiline comments:
+
+```
+ /* This is a multi-line Comment
+   which can span over multiple lines of text.
+   It is very useful!
+ */
+```
+
+## Functions
+
+We've already briefly looked at functions in C++ by examining the main function. As specified before, functions are used to break up code into reusable blocks, which can be run in varied sequence. They can also take varied input and return values based on that input. Functions can be used to break up a complicated program into multiple subroutines, making it easier to understand and modify.
+
+Below is a modified version of the hello world program re-written to include an extra function:
+
+```
+  #include <iostream>
+  using namespace std;
+
+  int HelloWorld() {
+    cout << "Hello World!" << endl;
+    return 0;
+  }
+
+  int main()
+  {
+     HelloWorld();
+     return 0;
+  }
+```
+
+As you can see, the main function has been broken up into two functions, main and the HelloWorld function. The HelloWorld function also returns an integer and does not take any values. Previously the main function invoked cout to write text to the screen. What we can see instead is that the main function now invokes the HelloWorld method which instead uses cout to display text to the screen.
+
+Let's try a more complex example which adds two numbers together and displays their output:
+
+```
+  #include <iostream>
+  using namespace std;
+
+  int addition(int x, int y) {
+    return x + y;
+  }
+
+  int main()
+  {
+     cout << "The Result of 13 + 27 is: " << addition(13, 27) << endl;
+     return 0;
+  }
+```
