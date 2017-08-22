@@ -158,7 +158,7 @@ Below is a modified version of the hello world program re-written to include an 
      return 0;
   }
 ```
-
+S
 As you can see, the main function has been broken up into two functions, main and the HelloWorld function. The HelloWorld function also returns an integer and does not take any values. Previously the main function invoked cout to write text to the screen. What we can see instead is that the main function now invokes the HelloWorld method which instead uses cout to display text to the screen.
 
 Let's try a more complex example which adds two numbers together and displays their output:
@@ -177,3 +177,96 @@ Let's try a more complex example which adds two numbers together and displays th
      return 0;
   }
 ```
+
+When executed, the output of this function will be:
+
+```
+The Result of 13 + 27 is: 40
+```
+
+In this simple program we have introduced a new function called addition. The addition function has two parameters, one called x and the other called y which are both integers. The function returns the result of the addition of these two parameters as an integer, which is done by this line of code:
+
+```
+ return x + y;
+```
+
+Within the main function we have modified the cout line from our original program so that it now displays a result from this function. In this case, we are just simply adding the result of 13 and 27, which gives 40. We pass these two integer values to the addition function which returns the result as an integer, which is subsequently displayed by the cout function. The addition function defined using a return type (int), a name (addition) and two parameters (int x and y), some statements surrounded in brackets {} and a return statement which returns a value that matches up with the return type.
+
+The important things to take from this example are the use of the addition operator to add two integers together, how a function is declared and how a function is invoked. Not all functions have to have a return type or return a value. The example below shows a function with a void type, that doesn't return any value or type:
+
+```
+#include <iostream>
+using namespace std;
+
+void consoleOutput() {
+  cout << "This is a simple string literal, written to the screen using cout" << endl;
+  cout << "Here is the number 5: " << 5 << endl;
+  cout << "Performing Division: 297 / 7" << 297/7 << endl;
+  cout << "Performing Multiplication: 33 * 9" << 33*9 << endl;
+  cout << "Performing Subtraction: 1500 - 150" << 1500-150 << endl;
+}
+
+int main()
+{
+   consoleOutput();
+   return 0;
+}
+```
+
+This program when executed will display 5 lines of output, 3 of which have output from mathematical operations. The main difference in this example is the removal of most of the statements of code from main to the consoleOutput function. This method is executed by the main function and is used to write output to the console. Note that the consoleOutput function is defined with type void, meaning it doesn't return any value. It also doesn't take any parameters unlike the addition function in the previous example.
+
+The first two statements of the consoleOutput function don't do much apart from write some text to the console. The next few lines write output to the screen but also make use of mathematical operators. Through all of the examples, we have now used addition, subtraction, division and multiplication operators. We will look at functions and operators in more detail later on.
+
+# Getting user input through std::cin
+
+Though we have displayed text to the screen, it is also important that we take input from the user. In the next example we will prompt the user to enter some variables and then we will use them in our code. We can use the std::cin (pronounced see-in) function to read text input from the user. We already used the cout function to write text to the screen:
+
+```
+  std::cout << "Hello, World!" << std:endl;
+```
+
+The insertion operator denoted by << is used to insert data into the output stream as seen in the example above. The extraction operator >> is used to extract data from the input stream which is then written to a variable. Below is an example of how input can be obtained from the user:
+
+```
+ std::cin >> UserVariable;
+```
+
+When this code is executed, the user is prompted to give input, the result of which is stored in UserVariable. A variable or scalar is a storage location, paired with a symbolic name (an identifier), which contains some known or unknown quantity of information referred to as a value. The variable is a way to reference the stored value. The separation of name and content allows the name to be used independently of the exact information it represents. The identifier in source code can be bound to a value during run time and the value of that variable may thus change during the course of program execution.
+
+In C++, a variable is required to have a type. In this case, the UserVariable could be an integer to represent a number, a string to represent some text or some other type. If we need to take two input variables from the user, we can easily do this with cin:
+
+```
+ std:cin >> UserVariable1 >> UserVariable2;
+```
+
+In this example, the first value the user enters is written to UserVariable1 and the second variable is written to UserVariable2. The example below combines both the cin and cout operations to show how user input can be obtained and used in a simple application:
+
+
+```
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+   int UserAge;
+   string UserName;
+
+   cout << "Enter your age: ";
+   cin >> UserAge;
+
+
+   cout << "Enter Your Name: ";
+   cin >> UserName;
+
+   cout << "Welcome " << UserName << " You are " << UserAge << " Years Old." endl;
+
+   return 0;
+}
+```
+
+This simple program takes two values from the end user, a string which represents the user's name and an integer called UserAge which represents the user's age. These values are then displayed to the user at the end of the program. This program shows how we can handle simple user input and output. Variables are covered in more detail in the next chapter.
+
+# Summary
+
+This chapter covered covered functions, simple user input and output, simple variables, comments and namespaces. We created several new programs to demonstrate these functions. 
